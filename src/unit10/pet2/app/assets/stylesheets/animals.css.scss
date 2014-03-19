@@ -24,12 +24,13 @@
     }
 
     dt {
-      color:        #A3A300;
+      color:        #EEE;
       font-weight:  bold;
       font-size:    larger;
     }
 
     dd {
+      color:        #EEE;
       margin: 0;
     }
   }
@@ -41,10 +42,10 @@
   }
 
   .list_line_even {
-    background:   #006633;
+    background:   #009999;
   }
 
   .list_line_odd {
-    background:   #336600;
+    background:   #006666;
   }
 }
