@@ -15,11 +15,14 @@
   background: #009999;
   padding: 10px;
   border-bottom: 2px solid;
-  font: small-caps 40px/40px "Times New Roman", san-serif;
+  font: small-caps 60px/60px "Times New Roman", san-serif;
   color: #003366;
   text-align: center;
+  height: 100px;
 
   img {
+    margin-left: 30px;
+    width: 80px;
     float: left;
   }
 }
