@@ -2,9 +2,11 @@
 
 <table>
 <tr>
-  <th><%= sortable "image" %></th>
+  <th>Image</th>
   <th><%= sortable "name" %></th>
   <th><%= sortable "age" %></th>
+  <th><%= sortable "gender" %></th>
+  <th>Status</th>
 </tr>
 <% @animals.each do |animal| %>
   <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
@@ -19,6 +21,9 @@
     </td>
     <td>
       <%= animal.age %>
+    </td>
+    <td>
+      <%= animal.gender %>
     </td>
     <td>
       <%= animal.status_id %>

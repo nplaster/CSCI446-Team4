@@ -27,7 +27,10 @@
     <%= f.label :age %><br>
     <%= f.number_field :age %>
   </div>
-  
+  <div class="field">
+      <%= f.label :gender %><br>
+      <%= f.select :gender, %w[Male Female] %>
+  </div>
   <div class="field">
     <%= f.label :status_id %><br>
     <%= f.select :status_id, %w[Available Fostered] %>
