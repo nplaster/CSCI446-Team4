@@ -30,8 +30,7 @@
   
   <div class="field">
     <%= f.label :status_id %><br>
-    <%= f.select :status_id, Animal::STATUS_TYPES,
-    prompt: 'Select a status' %>
+    <%= f.select :status_id, %w[Available Fostered] %>
   </div>
   
   <div class="actions">
