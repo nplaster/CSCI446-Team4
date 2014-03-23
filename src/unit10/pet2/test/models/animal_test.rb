@@ -46,4 +46,18 @@ class AnimalTest < ActiveSupport::TestCase
     assert animal.invalid?
   end
 
+  test "animals must be either Fostered or Available" do
+    animal = Animal.new(name: "My Book Title",
+    description: "yyy",
+    image_url: "zzz.jpg", 
+    gender: 'Female',
+    age: 1)
+    assert animal.invalid?
+    animal.status_id = 'Fostered'
+    assert animal.valid?
+    animal.status_id = 'Available'
+    assert animal.valid?
+    animal.status_id = 'homeless'
+    assert animal.invalid?
+  end
 end
