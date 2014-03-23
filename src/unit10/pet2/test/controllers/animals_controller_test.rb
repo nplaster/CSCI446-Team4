@@ -7,7 +7,9 @@ class AnimalsControllerTest < ActionController::TestCase
       name:       'Lorem Ipsum',
       description: 'Wibbles are fun!',
       image_url:   'lorem.jpg',
-      age:       1
+      age:       1,
+      status_id: 'Fostered',
+      gender: 'Female'
     }
   end
 
@@ -52,4 +54,5 @@ class AnimalsControllerTest < ActionController::TestCase
 
     assert_redirected_to animals_path
   end
+
 end
