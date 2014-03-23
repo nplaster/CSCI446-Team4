@@ -5,7 +5,7 @@
 <h1>Foster Animal Catalog</h1>
 
 <% @animals.each do |animal| %>
-<% if animal.status_id == 0 %>
+<% if animal.status_id == 'Available' %>
   <div class="entry">
     <%= image_tag(animal.image_url) %>
     <h3><%= animal.name %></h3>
