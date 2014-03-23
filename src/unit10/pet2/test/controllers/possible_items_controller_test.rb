@@ -21,7 +21,7 @@ class PossibleItemsControllerTest < ActionController::TestCase
       post :create, animal_id: animals(:bunny).id
     end
     assert_redirected_to store_path
-end
+  end
 
   test "should show possible_item" do
     get :show, id: @possible_item
@@ -52,6 +52,5 @@ end
     end 
 
     assert_response :success
-    end
   end
 end
