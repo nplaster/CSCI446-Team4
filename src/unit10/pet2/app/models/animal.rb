@@ -15,6 +15,14 @@ class Animal < ActiveRecord::Base
     with: %r{\.(gif|jpg|png)\Z}i,
     message: 'must be a URL for GIF, JPG or PNG image.'
   }
+  validates :gender, allow_blank: true, format: {
+    with: %r{(Male|Female)\Z}i,
+    message: 'Must be Male or Female'
+  }
+  validates :status_id, allow_blank: true, format: {
+    with: %r{(Fostered|Available)\Z}i,
+    message: 'Must be either Fostered or Available'
+  }
   def self.latest
     Animal.order(:updated_at).last
   end

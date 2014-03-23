@@ -30,4 +30,20 @@ class AnimalTest < ActiveSupport::TestCase
     animal.age = 1
     assert animal.valid?
   end
+
+  test "animals must be either male or female" do
+    animal = Animal.new(name: "My Book Title",
+    description: "yyy",
+    image_url: "zzz.jpg", 
+    status_id: "Fostered", 
+    age: 1)
+    assert animal.invalid?
+    animal.gender = 'Male'
+    assert animal.valid?
+    animal.gender = 'Female'
+    assert animal.valid?
+    animal.gender = 'Smizmar'
+    assert animal.invalid?
+  end
+
 end
