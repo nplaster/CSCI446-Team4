@@ -2,7 +2,7 @@ require 'test_helper'
 
 class AnimalsControllerTest < ActionController::TestCase
   setup do
-    @animal = animals(:one)
+    @animal = animals(:elephant)
     @update = {
       name:       'Lorem Ipsum',
       description: 'Wibbles are fun!',
