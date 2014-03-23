@@ -14,7 +14,7 @@ class AnimalTest < ActiveSupport::TestCase
   end
   
   test "animal age must be positive" do
-    animal = Animal.new(name: "My Book Title",
+    animal = Animal.new(name: "Fuzzy",
     description: "yyy",
     image_url: "zzz.jpg", 
     status_id: "Fostered", 
@@ -31,8 +31,26 @@ class AnimalTest < ActiveSupport::TestCase
     assert animal.valid?
   end
 
+  test "animals must have a valid image url" do
+    animal = Animal.new(name: "Fuzzy",
+    description: "yyy",
+    status_id: "Fostered", 
+    gender: "Male",
+    age: 1)
+    assert animal.invalid?
+    animal.image_url = 'img.png'
+    assert animal.valid?
+    animal.image_url = 'img.jpg'
+    assert animal.valid?
+    animal.image_url = 'img.gif'
+    assert animal.valid?
+    animal.image_url = 'img.doc'
+    assert animal.invalid?
+  end
+
+
   test "animals must be either male or female" do
-    animal = Animal.new(name: "My Book Title",
+    animal = Animal.new(name: "Fuzzy",
     description: "yyy",
     image_url: "zzz.jpg", 
     status_id: "Fostered", 
@@ -47,7 +65,7 @@ class AnimalTest < ActiveSupport::TestCase
   end
 
   test "animals must be either Fostered or Available" do
-    animal = Animal.new(name: "My Book Title",
+    animal = Animal.new(name: "Fuzzy",
     description: "yyy",
     image_url: "zzz.jpg", 
     gender: 'Female',
