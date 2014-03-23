@@ -9,12 +9,16 @@ class AnimalTest < ActiveSupport::TestCase
     assert animal.errors[:description].any?
     assert animal.errors[:age].any?
     assert animal.errors[:image_url].any?
+    assert animal.errors[:status_id].any?
+    assert animal.errors[:gender].any?
   end
   
   test "animal age must be positive" do
     animal = Animal.new(name: "My Book Title",
     description: "yyy",
-    image_url: "zzz.jpg")
+    image_url: "zzz.jpg", 
+    status_id: "Fostered", 
+    gender: "Male")
     animal.age = -1
     assert animal.invalid?
     assert_equal ["must be greater than or equal to 0"],

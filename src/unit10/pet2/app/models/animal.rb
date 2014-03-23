@@ -9,7 +9,7 @@ class Animal < ActiveRecord::Base
   before_destroy :ensure_not_referenced_by_any_possible_item
   #...
 
-  validates :name, :description, :image_url, presence: true
+  validates :name, :description, :image_url, :status_id, :gender, presence: true
   validates :age, numericality: {greater_than_or_equal_to: 0}
   validates :image_url, allow_blank: true, format: {
     with: %r{\.(gif|jpg|png)\Z}i,
