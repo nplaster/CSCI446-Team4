@@ -1,0 +1,45 @@
+\documentclass{article}
+\usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
+
+\begin{document}
+\noindent
+Austin Diviness \\
+3/25/2014 \\
+Web Apps \\
+Haml vs erb \\
+
+\paragraph{ERB} 
+ERB stands for Embedded RuBy, it is a templating system modeled after HTML and PHP embedding. Ruby style code is held in special tags inside an HTML document. \texttt{<\% \%>} tags evaluate the expression they contain, while \texttt{<\%= \%>} tags evaluate their expression and print the result to the resulting output file. 
+
+
+\paragraph{HAML} 
+HAML stands for HTML Abstract Markup Language, it is a templating system similar to Sass for CSS files. Instead of embedding special tags in a document, Haml instead is a description of the entire document using its markup language. A \texttt{\%} followed by the tag name describes a simple tag in Haml, with an optional ruby style hash directly following it to describe any tag attributes. The hash is of the form \texttt{symbol => string}. A \texttt{=} can be used at the end of a Haml tag description to indicate that the tag has ruby code that must be evaluated. CSS style \texttt{\#} and \texttt{.} can be used to indicate the id and class of a tag, instead of using the tag description hash. Tags can be nested with further indentation levels, like in Python.
+
+\paragraph{Comparision} 
+ERB acts more as a supplement to an existing markup file then Haml, allowing web designers that are already familiar with HTML and CSS to pick up ERB quicker. Haml allows for compactness in a markup file, eliminating the need for closing tags and other HTML verboseness, at the expense of learning a new markup language. Because Haml is a new language rather than a couple new tags, those unfamiliar with it will have a more difficult time reading and understanding Haml files.
+
+\paragraph{Examples} 
+ERB \\
+\begin{verbatim}
+<div id="content">
+    <div class="left_colume">
+        <h2>Welcome to our site!</h2>
+        <p><%= print_information %></p>
+    </div>
+    <div class="right_colume">
+        <%= render :partial => "sidebar" %>
+    </div>
+</div>
+\end{verbatim}
+
+Haml
+\begin{verbatim}
+#content
+    .left_column
+        %h2 Welcome to our site!
+        %p= print_information
+    .right_column
+        = render :partial => 'sidebar'
+\end{verbatim}
+
+\end{document}
