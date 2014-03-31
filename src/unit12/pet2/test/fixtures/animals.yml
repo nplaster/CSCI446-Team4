@@ -1,0 +1,26 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+cat:
+  name: Whiskers
+  description: Whiskers is a young loveable kitten. Doesn't like children but has a soft spot for dogs. 
+  image_url: cat.jpg
+  age: 1
+  status_id: Available
+  gender: Male
+
+elephant:
+  name: Wrinkly
+  description: Wrinkly is an old wise elephant. Not good for cities or apartments. Prefers a large back yard and warm weather.  He is always down to play. Not good with other pets or children.
+  image_url: elephant.jpg 
+  age: 10
+  status_id: Fostered
+  gender: Female 
+
+bunny: 
+  name:       Thumper
+  description: 
+    Thumper is a big fun loving rabbit. If you get to know him you'll never be alone.
+  age:       3
+  image_url:   bunny.jpg 
+  status_id: Fostered
+  gender: Female

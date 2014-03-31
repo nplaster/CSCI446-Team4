@@ -1,0 +1,4 @@
+class ChangeIntToStringForAvailability < ActiveRecord::Migration
+  def change
+  end
+end
