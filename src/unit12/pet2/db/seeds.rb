@@ -59,3 +59,12 @@ Animal.create!(name: 'Meowser',
   age: 6,
   status_id: 'Available',
   gender: 'Male')
+
+
+User.delete_all
+User.create!(
+    email: 'admin',
+    password: 'test',
+    password_confirmation: 'test'
+)    
+    
