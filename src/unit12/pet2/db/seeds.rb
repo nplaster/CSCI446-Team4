@@ -59,3 +59,7 @@ Animal.create!(name: 'Meowser',
   age: 6,
   status_id: 'Available',
   gender: 'Male')
+
+User.create!(
+  
+)
