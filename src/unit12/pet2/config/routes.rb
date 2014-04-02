@@ -1,4 +1,6 @@
 Shelter::Application.routes.draw do
+  get "users/new"
+  get "sessions/new"
   resources :foster_parents
 
   resources :possible_items
