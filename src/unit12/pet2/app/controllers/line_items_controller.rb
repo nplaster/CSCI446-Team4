@@ -1,5 +1,6 @@
 class LineItemsController < ApplicationController
   include CurrentFoster
+  before_filter :require_login, :only => :create
   before_action :set_foster, only: [:create]
   before_action :set_line_item, only: [:show, :edit, :update, :destroy]
 

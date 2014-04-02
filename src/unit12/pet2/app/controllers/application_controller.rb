@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  protect_from_forgery
   helper_method :sort_column, :sort_direction
   
   def index
@@ -17,6 +18,10 @@ class ApplicationController < ActionController::Base
   
   def sort_direction
     %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+  end
+  
+  def not_authenticated
+    redirect_to login_url, :alert => "First log in to view this page."
   end
 
 end
