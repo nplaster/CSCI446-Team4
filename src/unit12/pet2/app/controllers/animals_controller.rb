@@ -1,4 +1,5 @@
 class AnimalsController < ApplicationController
+  before_filter :require_login
   before_action :set_animal, only: [:show, :edit, :update, :destroy]
 
   # GET /animals
