@@ -1,34 +1,42 @@
-<p id="notice"><%= notice %></p>
+<% if logged_in? && current_user.email == "admin" %>
+  <p id="notice"><%= notice %></p>
+  
+  <p>
+    <strong>Name:</strong>
+    <%= @animal.name %>
+  </p>
+  
+  <p>
+    <strong>Description:</strong>
+    <%= @animal.description %>
+  </p>
+  
+  <p>
+    <strong>Image url:</strong>
+    <%= @animal.image_url %>
+  </p>
+  
+  <p>
+    <strong>Age:</strong>
+    <%= @animal.age %>
+  </p>
+  
+  <p>
+  <strong>Gender:</strong>
+    <%= @animal.gender %>
+  </p>
+  
+  <p>
+  <strong>Status:</strong>
+    <%= @animal.status_id %>
+  </p>
+  
+  <%= link_to 'Edit', edit_animal_path(@animal) %> |
+  <%= link_to 'Back', animals_path %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @animal.name %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @animal.description %>
-</p>
-
-<p>
-  <strong>Image url:</strong>
-  <%= @animal.image_url %>
-</p>
-
-<p>
-  <strong>Age:</strong>
-  <%= @animal.age %>
-</p>
-
-<p>
-<strong>Gender:</strong>
-  <%= @animal.gender %>
-</p>
-
-<p>
-<strong>Status:</strong>
-  <%= @animal.status_id %>
-</p>
-
-<%= link_to 'Edit', edit_animal_path(@animal) %> |
-<%= link_to 'Back', animals_path %>
+<%else%>
+  <h1>Only accessible for admin</h1>
+  <form action="http://localhost:3000">
+    <input type="submit" value="Back">
+  </form>
+<%end%>

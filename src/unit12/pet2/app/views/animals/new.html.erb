@@ -1,5 +1,13 @@
+<% if logged_in? && current_user.email == "admin" %>
+
 <h1>New animal</h1>
 
 <%= render 'form' %>
 
 <%= link_to 'Back', animals_path %>
+<%else%>
+  <h1>Only accessible for admin</h1>
+  <form action="http://localhost:3000">
+    <input type="submit" value="Back">
+  </form>
+<%end%>
