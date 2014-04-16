@@ -1,0 +1,43 @@
+<h1>Listing transactions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Listing item</th>
+      <th>Bid item</th>
+      <th>Listing user</th>
+      <th>Bid user</th>
+      <th>Listing verify</th>
+      <th>Bnteger</th>
+      <th>Bid user</th>
+      <th>Listing verify</th>
+      <th>Bid verify</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @transactions.each do |transaction| %>
+      <tr>
+        <td><%= transaction.listing_item_id %></td>
+        <td><%= transaction.bid_item_id %></td>
+        <td><%= transaction.listing_user_id %></td>
+        <td><%= transaction.bid_user_id %></td>
+        <td><%= transaction.listing_verify %></td>
+        <td><%= transaction.bnteger %></td>
+        <td><%= transaction.bid_user_id %></td>
+        <td><%= transaction.listing_verify %></td>
+        <td><%= transaction.bid_verify %></td>
+        <td><%= link_to 'Show', transaction %></td>
+        <td><%= link_to 'Edit', edit_transaction_path(transaction) %></td>
+        <td><%= link_to 'Destroy', transaction, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Transaction', new_transaction_path %>

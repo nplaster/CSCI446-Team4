@@ -1,4 +1,6 @@
 Barter::Application.routes.draw do
+  resources :transactions
+
   resources :bids
 
   resources :items

@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Listing item:</strong>
+  <%= @transaction.listing_item_id %>
+</p>
+
+<p>
+  <strong>Bid item:</strong>
+  <%= @transaction.bid_item_id %>
+</p>
+
+<p>
+  <strong>Listing user:</strong>
+  <%= @transaction.listing_user_id %>
+</p>
+
+<p>
+  <strong>Bid user:</strong>
+  <%= @transaction.bid_user_id %>
+</p>
+
+<p>
+  <strong>Listing verify:</strong>
+  <%= @transaction.listing_verify %>
+</p>
+
+<p>
+  <strong>Bnteger:</strong>
+  <%= @transaction.bnteger %>
+</p>
+
+<p>
+  <strong>Bid user:</strong>
+  <%= @transaction.bid_user_id %>
+</p>
+
+<p>
+  <strong>Listing verify:</strong>
+  <%= @transaction.listing_verify %>
+</p>
+
+<p>
+  <strong>Bid verify:</strong>
+  <%= @transaction.bid_verify %>
+</p>
+
+<%= link_to 'Edit', edit_transaction_path(@transaction) %> |
+<%= link_to 'Back', transactions_path %>

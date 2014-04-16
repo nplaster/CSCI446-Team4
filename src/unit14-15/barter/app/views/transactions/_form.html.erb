@@ -1,0 +1,53 @@
+<%= form_for(@transaction) do |f| %>
+  <% if @transaction.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@transaction.errors.count, "error") %> prohibited this transaction from being saved:</h2>
+
+      <ul>
+      <% @transaction.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :listing_item_id %><br>
+    <%= f.number_field :listing_item_id %>
+  </div>
+  <div class="field">
+    <%= f.label :bid_item_id %><br>
+    <%= f.number_field :bid_item_id %>
+  </div>
+  <div class="field">
+    <%= f.label :listing_user_id %><br>
+    <%= f.number_field :listing_user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :bid_user_id %><br>
+    <%= f.number_field :bid_user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :listing_verify %><br>
+    <%= f.number_field :listing_verify %>
+  </div>
+  <div class="field">
+    <%= f.label :bnteger %><br>
+    <%= f.text_field :bnteger %>
+  </div>
+  <div class="field">
+    <%= f.label :bid_user_id %><br>
+    <%= f.number_field :bid_user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :listing_verify %><br>
+    <%= f.number_field :listing_verify %>
+  </div>
+  <div class="field">
+    <%= f.label :bid_verify %><br>
+    <%= f.number_field :bid_verify %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
