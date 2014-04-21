@@ -3,7 +3,7 @@ Barter::Application.routes.draw do
   #get "page/account"
   get "sessions/new"
   get "users/new"
-  get "users/items"
+  #get "users/items"
   resources :transactions
 
   resources :bids
@@ -14,7 +14,7 @@ Barter::Application.routes.draw do
   get "login" => "sessions#new", :as => "login"
   get "signup" => "users#new", :as => "signup"
   get "account" => "page#account", :as => "account"
-  
+  get "my_items" => "users#items", :as => "my_items"
   resources :users
   resources :sessions
   
