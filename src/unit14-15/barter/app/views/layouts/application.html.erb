@@ -6,9 +6,28 @@
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
-
-<%= yield %>
-
+<body class='<%= controller.controller_name %>'>
+    <div id="banner">
+    <!--<%= image_tag("logo.png") %> -->
+    <%= @page_title || "Barter" %><!-- <label id="code.depot.e.title"/> -->
+  </div>
+  <div id="columns">
+    <div id="side">
+      <ul>
+        <li><a href="http://localhost:3000">Home</a></li>
+        <li><a href="http://localhost:3000/animals/new">Add New Animal</a></li>
+        <li><a href="http://localhost:3000/animals">View Animals</a></li>
+      </ul>
+      <% if current_user %>
+          Logged in as <%= current_user.email %>.
+          <%= link_to "Log out", logout_path %>
+      <% else %>
+          <%= link_to "Sign up", signup_path %> or
+          <%= link_to "log in", login_path %>.
+      <% end %>
+    </div>
+    <div id="main">
+  <%= yield %>
+    </div>
+  </div>
 </body>
-</html>
