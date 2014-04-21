@@ -5,6 +5,11 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+User.delete_all
+User.create!(email: 'test', password:'test', id: 1)
+User.create!(email: 'test2', password:'test', id: 2)
+
 Item.delete_all
 Item.create!(
   name: 'Thumper',
@@ -14,7 +19,8 @@ Item.create!(
       </p>},
   image_url:   'bunny.jpg',
   status: 'Available',
-  condition: 'New')
+  condition: 'New',
+  user_id: 1)
 
 Item.create!(
     name: 'Cat',
@@ -24,7 +30,8 @@ Item.create!(
       </p>},
     image_url:   'cat.jpg',
     status: 'In Use',
-    condition: 'Poor')
+    condition: 'Poor',
+    user_id: 1)
 
 Item.create!(
     name: 'Fridge Cat',
@@ -34,7 +41,9 @@ Item.create!(
       </p>},
     image_url:   'cat2.jpg',
     status: 'Available',
-    condition: 'Good')
+    condition: 'Good',
+    user_id: 1)
+
 Item.create!(
     name: 'Door Stop',
     description:
@@ -43,4 +52,5 @@ Item.create!(
       </p>},
     image_url:   'elephant.jpg',
     status: 'Available',
-    condition: 'Excellent')
+    condition: 'Excellent',
+    user_id: 2)

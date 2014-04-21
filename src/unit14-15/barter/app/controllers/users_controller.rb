@@ -1,5 +1,10 @@
 class UsersController < ApplicationController
-  
+  def items
+    #@items = Item.where(user_id:2)
+    @items = Item.where(user_id:current_user)
+    puts "XXX #{current_user}"
+  end
+
   def new
     @user = User.new
   end
