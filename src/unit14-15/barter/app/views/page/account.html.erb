@@ -3,14 +3,7 @@
 <% end %>
 
 <h1>ACCOUNT</h1>
+<p>This is your account page click from the following links.</p>
+<%= link_to "My Bids", bids_path %>
+<%= link_to "My Items", items_path %>
 
-<p>This website is for Colorado School of Mines students in order to facilitate bartering of items between students.</p>
-
-<% if current_user %>
-    Logged in as <%= current_user.email %>.
-    <%= link_to "Log out", logout_path %>
-<% else %>
-    <p>Please Login to continue</p>
-    <%= link_to "Sign up", signup_path %> or
-    <%= link_to "log in", login_path %>.
-<% end %>

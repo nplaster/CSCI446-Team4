@@ -14,9 +14,8 @@
   <div id="columns">
     <div id="side">
       <ul>
-        <li><a href="http://localhost:3000">Home</a></li>
-        <li><a href="http://localhost:3000/animals/new">Add New Animal</a></li>
-        <li><a href="http://localhost:3000/animals">View Animals</a></li>
+        <li><%= link_to "My Account", account_path %></li>
+        <li><%= link_to "Items Listing", items_path %></li>
       </ul>
       <% if current_user %>
           Logged in as <%= current_user.email %>.
