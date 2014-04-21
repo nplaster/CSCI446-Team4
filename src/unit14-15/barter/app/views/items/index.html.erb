@@ -3,7 +3,7 @@
 <table>
   <thead>
     <tr>
-      <th>Image url</th>
+      <th>Image</th>
       <th>Name</th>
       <th>Description</th>
       <th>Status</th>
@@ -17,14 +17,11 @@
   <tbody>
     <% @items.each do |item| %>
       <tr>
-        <td><%= item.image_url %></td>
+        <td><%= image_tag(item.image_url, size: "60") %></td>
         <td><%= item.name %></td>
-        <td><%= item.description %></td>
+        <td><%= sanitize(item.description) %></td>
         <td><%= item.status %></td>
         <td><%= item.condition %></td>
-        <td><%= link_to 'Show', item %></td>
-        <td><%= link_to 'Edit', edit_item_path(item) %></td>
-        <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -32,4 +29,3 @@
 
 <br>
 
-<%= link_to 'New Item', new_item_path %>
