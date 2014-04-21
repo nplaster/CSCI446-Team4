@@ -1,0 +1,16 @@
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+
+<h1>Barter Catalog</h1>
+
+<p>This website is for Colorado School of Mines students in order to facilitate bartering of items between students.</p>
+
+<% if current_user %>
+    Logged in as <%= current_user.email %>.
+    <%= link_to "Log out", logout_path %>
+<% else %>
+    <p>Please Login to continue</p>
+    <%= link_to "Sign up", signup_path %> or
+    <%= link_to "log in", login_path %>.
+<% end %>
