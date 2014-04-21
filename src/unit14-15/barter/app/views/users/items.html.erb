@@ -1,0 +1,38 @@
+<h1>Listing items</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Image</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Status</th>
+      <th>Condition</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @items.each do |item| %>
+      <tr>
+        <td><%= image_tag(item.image_url, size: "60") %></td>
+        <td><%= item.name %></td>
+        <td><%= sanitize(item.description) %></td>
+        <td><%= item.status %></td>
+        <td><%= item.condition %></td>
+        <td class="list_actions">
+          <%= link_to 'Show', item %><br/>
+          <%= link_to 'Edit', edit_item_path(item) %><br/>
+            <%= link_to 'Destroy', item, method: :delete,
+                  data: { confirm: 'Are you sure?' } %>
+        </td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<%= link_to 'New Item', new_item_path %>
