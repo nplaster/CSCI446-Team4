@@ -1,4 +1,5 @@
 class BidsController < ApplicationController
+  before_filter :require_login
   before_action :set_bid, only: [:show, :edit, :update, :destroy]
 
   # GET /bids
