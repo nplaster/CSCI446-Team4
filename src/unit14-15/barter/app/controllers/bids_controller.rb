@@ -30,6 +30,9 @@ class BidsController < ApplicationController
     #puts "XXXXX#{bid_params}XXX"
     respond_to do |format|
       if @bid.save
+        item = Item.find(params[:bid_item_id])
+        item.status = "Bid"
+        item.save
         format.html { redirect_to item_detail_path(:item_id => params[:listing_item_id]), notice: 'Bid was successfully created.' }
         format.json { render action: 'show', status: :created, location: @bid }
       else
