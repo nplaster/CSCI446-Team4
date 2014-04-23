@@ -5,7 +5,15 @@ class ItemsController < ApplicationController
   # GET /items
   # GET /items.json
   def index
-    @items = Item.all
+    #@items = Item.all
+    @items = Item.where(status:["Available"])
+    #@items = Item.where(condition:["New","Good"])
+    #@items = Item.where.not(condition:["New","Good"])
+  end
+
+  def detail
+    #@items = Item.all
+    @item_detail = Item.where(:id => params[:item_id])
     #@items = Item.where(condition:["New","Good"])
     #@items = Item.where.not(condition:["New","Good"])
   end
