@@ -26,6 +26,12 @@
   <% end %>
   </tbody>
 </table>
+22
+<%= form_tag("detail", method: "post") do  %>
+<%= select_tag(:bid_item_id, options_for_select(@selection_items)) %>
+<%= submit_tag("Bid") %>
+<% end %>
+22
 <h2>Bids</h2>
 <table>
   <thead>

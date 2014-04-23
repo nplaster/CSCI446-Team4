@@ -20,11 +20,15 @@ class ItemsController < ApplicationController
     @bids.each do |bid|
       bidr << bid.bid_item_id
     end
-    puts "XXXX", bidr
+
     @bid_items = Item.where(:id => bidr)
     #t.integer  "listing_item_id"
     #t.integer  "bid_item_id"
+    @user_bid_items = Item.where(user_id:current_user, status:["Available"])
 
+    @selection_items = []
+    @user_bid_items.each { |d| @selection_items << [d.name, d.id]  }
+    puts "XXXXXXXXXXX#{@selection_items}"
     #@items = Item.where(condition:["New","Good"])
     #@items = Item.where.not(condition:["New","Good"])
   end
