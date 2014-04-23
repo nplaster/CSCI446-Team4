@@ -5,9 +5,9 @@ class ItemsController < ApplicationController
   # GET /items
   # GET /items.json
   def index
-    #@items = Item.all
+    @items = Item.all
     #@items = Item.where(condition:["New","Good"])
-    @items = Item.where.not(condition:["New","Good"])
+    #@items = Item.where.not(condition:["New","Good"])
   end
 
   # GET /items/1
@@ -72,6 +72,6 @@ class ItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def item_params
-      params.require(:item).permit(:image_url, :name, :description, :status, :condition)
+      params.require(:item).permit(:item_image, :name, :description, :status, :condition)
     end
 end

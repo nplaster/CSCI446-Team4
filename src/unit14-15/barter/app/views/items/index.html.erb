@@ -17,7 +17,7 @@
   <tbody>
     <% @items.each do |item| %>
       <tr>
-        <td><%= image_tag(item.image_url, size: "60") %></td>
+        <td><%= image_tag item.item_image.url(:medium)  %></td>
         <td><%= item.name %></td>
         <td><%= sanitize(item.description) %></td>
         <td><%= item.status %></td>
