@@ -54,3 +54,12 @@ Item.create!(
     status: 'Available',
     condition: 'Excellent',
     user_id: 2)
+
+Bid.create!(
+    listing_item_id:4,
+    bid_item_id:3
+)
+Bid.create!(
+    listing_item_id:4,
+    bid_item_id:2
+)

@@ -1,0 +1,56 @@
+<h1>Listing items</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Image</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Status</th>
+      <th>Condition</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @item_detail.each do |item| %>
+      <tr>
+        <td><%= link_to image_tag(item.item_image.url(:thumb)), item_detail_path(:item_id => item.id)  %></td>
+        <td><%= item.name %></td>
+        <td><%= sanitize(item.description) %></td>
+        <td><%= item.status %></td>
+        <td><%= item.condition %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+<h2>Bids</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Image</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Status</th>
+      <th>Condition</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @bid_items.each do |item| %>
+      <tr>
+        <td><%= image_tag(item.item_image.url(:thumb))  %></td>
+        <td><%= item.name %></td>
+        <td><%= sanitize(item.description) %></td>
+        <td><%= item.status %></td>
+        <td><%= item.condition %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+<br>

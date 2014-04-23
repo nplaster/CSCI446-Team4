@@ -14,6 +14,17 @@ class ItemsController < ApplicationController
   def detail
     #@items = Item.all
     @item_detail = Item.where(:id => params[:item_id])
+    @bids = Bid.where(:listing_item_id => params[:item_id])
+
+    bidr = []
+    @bids.each do |bid|
+      bidr << bid.bid_item_id
+    end
+    puts "XXXX", bidr
+    @bid_items = Item.where(:id => bidr)
+    #t.integer  "listing_item_id"
+    #t.integer  "bid_item_id"
+
     #@items = Item.where(condition:["New","Good"])
     #@items = Item.where.not(condition:["New","Good"])
   end
