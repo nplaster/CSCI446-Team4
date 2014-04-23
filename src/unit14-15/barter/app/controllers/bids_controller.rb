@@ -25,11 +25,12 @@ class BidsController < ApplicationController
   # POST /bids
   # POST /bids.json
   def create
-    @bid = Bid.new(bid_params)
-
+    #@bid = Bid.new(bid_params)
+    @bid = Bid.new(listing_item_id:params[:listing_item_id], bid_item_id:params[:bid_item_id])
+    #puts "XXXXX#{bid_params}XXX"
     respond_to do |format|
       if @bid.save
-        format.html { redirect_to @bid, notice: 'Bid was successfully created.' }
+        format.html { redirect_to item_detail_path(:item_id => params[:listing_item_id]), notice: 'Bid was successfully created.' }
         format.json { render action: 'show', status: :created, location: @bid }
       else
         format.html { render action: 'new' }
@@ -67,6 +68,7 @@ class BidsController < ApplicationController
     def set_bid
       @bid = Bid.find(params[:id])
     end
+
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bid_params

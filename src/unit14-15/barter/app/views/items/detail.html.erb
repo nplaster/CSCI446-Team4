@@ -26,12 +26,13 @@
   <% end %>
   </tbody>
 </table>
-22
-<%= form_tag("detail", method: "post") do  %>
+
+<%= form_tag(bids_path, method: "post") do  %>
+<input type='hidden' name='listing_item_id' value="<%=@listing_item_id%>">
 <%= select_tag(:bid_item_id, options_for_select(@selection_items)) %>
 <%= submit_tag("Bid") %>
 <% end %>
-22
+
 <h2>Bids</h2>
 <table>
   <thead>

@@ -4,10 +4,9 @@ Barter::Application.routes.draw do
   get "sessions/new"
   get "users/new"
   #get "users/items"
+
   resources :transactions
-
   resources :bids
-
   resources :items
   
   get "logout" => "sessions#destroy", :as => "logout"
@@ -16,6 +15,7 @@ Barter::Application.routes.draw do
   get "account" => "page#account", :as => "account"
   get "my_items" => "users#items", :as => "my_items"
   get "item_detail" => "items#detail", :as => "item_detail"
+
   resources :users
   resources :sessions
   

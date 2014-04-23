@@ -14,6 +14,7 @@ class ItemsController < ApplicationController
   def detail
     #@items = Item.all
     @item_detail = Item.where(:id => params[:item_id])
+    @listing_item_id = params[:item_id]
     @bids = Bid.where(:listing_item_id => params[:item_id])
 
     bidr = []
@@ -25,6 +26,7 @@ class ItemsController < ApplicationController
     #t.integer  "listing_item_id"
     #t.integer  "bid_item_id"
     @user_bid_items = Item.where(user_id:current_user, status:["Available"])
+
 
     @selection_items = []
     @user_bid_items.each { |d| @selection_items << [d.name, d.id]  }
