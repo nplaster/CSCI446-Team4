@@ -35,6 +35,21 @@ class ItemsController < ApplicationController
     #@items = Item.where.not(condition:["New","Good"])
   end
 
+  def list_item
+    result = Item.where(:id => params[:item_id])
+    @item = result[0]
+    @item.status = "Listed"
+    respond_to do |format|
+      if @item.save
+        format.html { redirect_to my_items_path, notice: 'Item was successfully listed.' }
+        format.json { render action: 'show', status: :created, location: @item }
+      else
+        format.html { render action: 'new' }
+        format.json { render json: @item.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   # GET /items/1
   # GET /items/1.json
   def show
@@ -59,11 +74,9 @@ class ItemsController < ApplicationController
 
     respond_to do |format|
       if @item.save
-        puts "if"
         format.html { redirect_to my_items_path, notice: 'Item was successfully created.' }
         format.json { render action: 'show', status: :created, location: @item }
       else
-        puts "else"
         format.html { render action: 'new' }
         format.json { render json: @item.errors, status: :unprocessable_entity }
       end
@@ -75,7 +88,7 @@ class ItemsController < ApplicationController
   def update
     respond_to do |format|
       if @item.update(item_params)
-        format.html { redirect_to @item, notice: 'Item was successfully updated.' }
+        format.html { redirect_to my_items_path, notice: 'Item was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

@@ -15,6 +15,7 @@ Barter::Application.routes.draw do
   get "account" => "page#account", :as => "account"
   get "my_items" => "users#items", :as => "my_items"
   get "item_detail" => "items#detail", :as => "item_detail"
+  get "list_item" => "items#list_item", :as => "list_item"
 
   resources :users
   resources :sessions

@@ -24,7 +24,7 @@
         <td><%= item.status %></td>
         <td><%= item.condition %></td>
         <td class="list_actions">
-          <%= link_to 'Show', item %><br/>
+            <%= link_to 'List', list_item_path(:item_id => item.id) %><br/>
           <%= link_to 'Edit', edit_item_path(item) %><br/>
             <%= link_to 'Destroy', item, method: :delete,
                   data: { confirm: 'Are you sure?' } %>
