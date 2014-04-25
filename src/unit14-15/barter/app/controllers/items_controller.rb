@@ -6,7 +6,7 @@ class ItemsController < ApplicationController
   # GET /items.json
   def index
     #@items = Item.all
-    @items = Item.where(status:["Available"])
+    @items = Item.where(status:["Listed"])
     #@items = Item.where(condition:["New","Good"])
     #@items = Item.where.not(condition:["New","Good"])
   end
