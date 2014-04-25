@@ -25,8 +25,14 @@ class TransactionsController < ApplicationController
   # POST /transactions
   # POST /transactions.json
   def create
-    @transaction = Transaction.new(transaction_params)
+    @transaction = Transaction.new 
+    @transaction.listing_item_id = params[:listing_item_id]
 
+    @transaction.bid_item_id = params[:bid_item_id]
+    @transaction.listing_user_id = params[:listing_user_id]
+    @transaction.bid_user_id = params[:bid_user_id]
+    @transaction.listing_verify = params[:listing_verify]
+    @transaction.bid_verify = params[:bid_verify]
     respond_to do |format|
       if @transaction.save
         format.html { redirect_to @transaction, notice: 'Transaction was successfully created.' }
@@ -70,6 +76,7 @@ class TransactionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def transaction_params
-      params.require(:transaction).permit(:listing_item_id, :bid_item_id, :listing_user_id, :bid_user_id, :listing_verify, :bnteger, :bid_user_id, :listing_verify, :bid_verify)
+      #params.require(:transaction).permit(:listing_item_id, :bid_item_id, :listing_user_id, :bid_user_id, :listing_verify, :bid_verify)
+      params
     end
 end
