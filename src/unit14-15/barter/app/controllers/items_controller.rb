@@ -53,12 +53,17 @@ class ItemsController < ApplicationController
   # POST /items.json
   def create
     @item = Item.new(item_params)
+    @item.user_id = current_user.id
+    @item.status = "Available"
+
 
     respond_to do |format|
       if @item.save
+        puts "if"
         format.html { redirect_to @item, notice: 'Item was successfully created.' }
         format.json { render action: 'show', status: :created, location: @item }
       else
+        puts "else"
         format.html { render action: 'new' }
         format.json { render json: @item.errors, status: :unprocessable_entity }
       end

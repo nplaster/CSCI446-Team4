@@ -10,6 +10,7 @@ User.delete_all
 User.create!(email: 'test', password:'test', id: 1)
 User.create!(email: 'test2', password:'test', id: 2)
 
+=begin
 Item.delete_all
 Item.create!(
   name: 'Thumper',
@@ -63,3 +64,4 @@ Bid.create!(
     listing_item_id:4,
     bid_item_id:2
 )
+=end
