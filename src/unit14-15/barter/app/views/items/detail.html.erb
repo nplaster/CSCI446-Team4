@@ -1,31 +1,18 @@
 <h1><%= @item_detail[0].name %></h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Image</th>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Status</th>
-      <th>Condition</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
   <% @item_detail.each do |item| %>
-      <tr>
-        <td><%= link_to image_tag(item.item_image.url(:thumb)), item_detail_path(:item_id => item.id)  %></td>
-        <td><%= item.name %></td>
-        <td><%= sanitize(item.description) %></td>
-        <td><%= item.status %></td>
-        <td><%= item.condition %></td>
-      </tr>
+    <%= image_tag(item.item_image.url(:medium))  %>
+    <br />
+    <b>Desription:</b>
+    <%= sanitize(item.description) %>
+    <br />
+    <b>Condition:</b>
+    <%= item.condition %>
+    <br />
   <% end %>
-  </tbody>
-</table>
+
+<hr>
+<b> Want to bid?</b>
 
 <%= form_tag(bids_path, method: "post") do  %>
 <input type='hidden' name='listing_item_id' value="<%=@listing_item_id%>">
