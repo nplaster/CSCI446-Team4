@@ -1,4 +1,5 @@
 <p id="notice"><%= notice %></p>
+
 <h1><%= @item_detail[0].name %></h1>
 
   <% @item_detail.each do |item| %>
@@ -13,12 +14,17 @@
   <% end %>
 
 <hr>
+
+<% unless current_user.id == @item_detail[0].user_id %>
 <b> Want to bid?</b>
 
 <%= form_tag(bids_path, method: "post") do  %>
 <input type='hidden' name='listing_item_id' value="<%=@listing_item_id%>">
 <%= select_tag(:bid_item_id, options_for_select(@selection_items)) %>
 <%= submit_tag("Bid") %>
+<% end %>
+
+<hr>
 <% end %>
 
 <h2>Bids</h2>
@@ -30,7 +36,9 @@
       <th>Description</th>
       <th>Status</th>
       <th>Condition</th>
-      <th></th>
+      <% if current_user.id == @item_detail[0].user_id %>
+      <th>Accept?</th>
+      <% end %>
       <th></th>
       <th></th>
     </tr>
@@ -44,8 +52,12 @@
         <td><%= sanitize(item.description) %></td>
         <td><%= item.status %></td>
         <td><%= item.condition %></td>
+        <% if current_user.id == @item_detail[0].user_id %>
+        <td><%= link_to 'Accept Barter', transactions_path(:listing_item_id => @item_detail[0].id, :bid_item_id => item.id) %></td>
+        <% end %>
       </tr>
   <% end %>
   </tbody>
 </table>
 <br>
+

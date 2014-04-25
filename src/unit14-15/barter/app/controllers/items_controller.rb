@@ -33,6 +33,7 @@ class ItemsController < ApplicationController
     puts "XXXXXXXXXXX#{@selection_items}"
     #@items = Item.where(condition:["New","Good"])
     #@items = Item.where.not(condition:["New","Good"])
+    @current_user_id = current_user.id
   end
 
   def list_item
