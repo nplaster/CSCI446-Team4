@@ -66,9 +66,29 @@ class TransactionsController < ApplicationController
   # PATCH/PUT /transactions/1
   # PATCH/PUT /transactions/1.json
   def update
+    @transaction = Transaction.where(id:params[:id])[0]
+    if @transaction.listing_user_id == current_user.id
+      other_user_id = @transaction.bid_user_id
+      other_user_verified = @transaction.bid_verify
+      @transaction.listing_verify = 1
+    else
+      other_user_id = @transaction.listing_user_id
+      other_user_verified = @transaction.listing_verify
+      @transaction.bid_verify = 1
+    end
+    if other_user_verified == 1
+      bid_item = Item.where(id:@transaction.bid_item_id)[0]
+      listing_item = Item.where(id:@transaction.listing_item_id)[0]
+      bid_item.status = "Completed"
+      listing_item.status = "Completed"
+      bid_item.save
+      listing_item.save
+    end
+
+
     respond_to do |format|
-      if @transaction.update(transaction_params)
-        format.html { redirect_to @transaction, notice: 'Transaction was successfully updated.' }
+      if @transaction.save
+        format.html { redirect_to my_transactions_path, notice: 'Transaction was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

@@ -22,6 +22,15 @@
         <td><%= trade[:other_user].email %></td>
         <td><%= trade[:other_item].name %>
         <td><%= image_tag(trade[:other_item].item_image.url(:thumb)) %></td>
+        <td>
+            <% if trade[:verified] == 1 %>
+                Verified
+            <% else %>
+                <%= form_tag(transaction_path(:id => trade[:transaction_id]), method: "patch") do %>
+                <%= submit_tag("Verify") %>
+                <% end %>
+            <% end %>
+        </td>
 
       </tr>
     <% end %>
