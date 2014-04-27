@@ -1,0 +1,29 @@
+
+
+<table>
+  <thead>
+    <tr>
+      <th>My Current Item</th>
+      <th>My Current Item's Image</th>
+      <th>Other User's Name</th>
+      <th>Their Current Item</th>
+      <th>Their Current Item's Image</th>
+      <th>I have completed my part of the barter</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @trades.each do |trade| %>
+      <tr>
+        <td><%= trade[:user_item].name %>
+        <td><%= image_tag(trade[:user_item].item_image.url(:thumb)) %></td>
+        <td><%= trade[:other_user].email %></td>
+        <td><%= trade[:other_item].name %>
+        <td><%= image_tag(trade[:other_item].item_image.url(:thumb)) %></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>

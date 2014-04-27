@@ -1,8 +1,28 @@
 class UsersController < ApplicationController
   def items
-    #@items = Item.where(user_id:2)
     @items = Item.where(user_id:current_user)
-    puts "XXX #{current_user}"
+  end
+
+  def transactions
+    transactions = Transaction.where("listing_user_id = #{current_user.id} or bid_user_id = #{current_user.id}")
+    @trades = Array.new
+    transactions.each do |t|
+      if t.listing_user_id == current_user.id
+        user_item = Item.where(id:t.listing_item_id)[0]
+        other_item = Item.where(id:t.bid_item_id)[0]
+        other_user = User.where(id:t.bid_user_id)[0]
+      else
+        other_item = Item.where(id:t.listing_item_id)[0]
+        user_item = Item.where(id:t.bid_item_id)[0]
+        other_user = User.where(id:t.listing_user_id)[0]
+      end
+      tempHash = Hash.new
+      tempHash[:user_item] = user_item
+      tempHash[:other_item] = other_item
+      tempHash[:other_user] = other_user
+      @trades << tempHash
+    end
+
   end
 
   def new
