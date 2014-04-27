@@ -11,11 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140423203007) do
+ActiveRecord::Schema.define(version: 20140427210846) do
 
   create_table "bids", force: true do |t|
     t.integer  "listing_item_id"
     t.integer  "bid_item_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "completed_transactions", force: true do |t|
+    t.integer  "listing_item_id"
+    t.integer  "bid_item_id"
+    t.integer  "listing_user_id"
+    t.integer  "bid_user_id"
+    t.integer  "listing_verify"
+    t.integer  "bid_verify"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

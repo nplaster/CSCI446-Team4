@@ -88,6 +88,18 @@ class TransactionsController < ApplicationController
 
     respond_to do |format|
       if @transaction.save
+        if @transaction.bid_verify == 1 and @transaction.listing_verify == 1
+          @completed_transaction = CompletedTransaction.new
+          @completed_transaction.listing_item_id = @transaction.listing_item_id
+          @completed_transaction.bid_item_id = @transaction.bid_item_id
+          @completed_transaction.listing_user_id = @transaction.listing_user_id
+          @completed_transaction.bid_user_id = @transaction.bid_user_id
+          @completed_transaction.bid_verify = @transaction.bid_verify
+          @completed_transaction.listing_verify = @transaction.listing_verify
+          @completed_transaction.save
+          @transaction.destroy
+        end
+
         format.html { redirect_to my_transactions_path, notice: 'Transaction was successfully updated.' }
         format.json { head :no_content }
       else
