@@ -1,4 +1,6 @@
 Barter::Application.routes.draw do
+  resources :completed_transactions
+
   get "page/index"
   #get "page/account"
   get "sessions/new"

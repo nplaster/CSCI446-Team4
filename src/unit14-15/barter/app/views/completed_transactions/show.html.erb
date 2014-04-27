@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Listing item:</strong>
+  <%= @completed_transaction.listing_item_id %>
+</p>
+
+<p>
+  <strong>Bid item:</strong>
+  <%= @completed_transaction.bid_item_id %>
+</p>
+
+<p>
+  <strong>Listing user:</strong>
+  <%= @completed_transaction.listing_user_id %>
+</p>
+
+<p>
+  <strong>Bid user:</strong>
+  <%= @completed_transaction.bid_user_id %>
+</p>
+
+<p>
+  <strong>Listing verify:</strong>
+  <%= @completed_transaction.listing_verify %>
+</p>
+
+<p>
+  <strong>Bid verify:</strong>
+  <%= @completed_transaction.bid_verify %>
+</p>
+
+<%= link_to 'Edit', edit_completed_transaction_path(@completed_transaction) %> |
+<%= link_to 'Back', completed_transactions_path %>

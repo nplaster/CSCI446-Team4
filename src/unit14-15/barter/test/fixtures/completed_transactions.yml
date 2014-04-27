@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  listing_item_id: 1
+  bid_item_id: 1
+  listing_user_id: 1
+  bid_user_id: 1
+  listing_verify: 1
+  bid_verify: 1
+
+two:
+  listing_item_id: 1
+  bid_item_id: 1
+  listing_user_id: 1
+  bid_user_id: 1
+  listing_verify: 1
+  bid_verify: 1

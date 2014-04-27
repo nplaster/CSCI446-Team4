@@ -1,0 +1,37 @@
+<h1>Listing completed_transactions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Listing item</th>
+      <th>Bid item</th>
+      <th>Listing user</th>
+      <th>Bid user</th>
+      <th>Listing verify</th>
+      <th>Bid verify</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @completed_transactions.each do |completed_transaction| %>
+      <tr>
+        <td><%= completed_transaction.listing_item_id %></td>
+        <td><%= completed_transaction.bid_item_id %></td>
+        <td><%= completed_transaction.listing_user_id %></td>
+        <td><%= completed_transaction.bid_user_id %></td>
+        <td><%= completed_transaction.listing_verify %></td>
+        <td><%= completed_transaction.bid_verify %></td>
+        <td><%= link_to 'Show', completed_transaction %></td>
+        <td><%= link_to 'Edit', edit_completed_transaction_path(completed_transaction) %></td>
+        <td><%= link_to 'Destroy', completed_transaction, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Completed transaction', new_completed_transaction_path %>
