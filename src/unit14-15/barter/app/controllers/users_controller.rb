@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def items
-    @items = Item.where(user_id:current_user)
+    @items = Item.where(user_id:current_user, status:['Available', 'Sold', 'Listed', 'Bid'])
   end
 
   def transactions
