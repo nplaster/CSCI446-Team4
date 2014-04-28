@@ -1,6 +1,7 @@
 require 'test_helper'
 
 class BidsControllerTest < ActionController::TestCase
+=begin
   setup do
     @bid = bids(:one)
   end
@@ -46,4 +47,5 @@ class BidsControllerTest < ActionController::TestCase
 
     assert_redirected_to bids_path
   end
+=end
 end
