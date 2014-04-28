@@ -1,37 +1,25 @@
-<h1>Listing completed_transactions</h1>
+<h1>All Completed Transactions</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Listing item</th>
-      <th>Bid item</th>
-      <th>Listing user</th>
-      <th>Bid user</th>
-      <th>Listing verify</th>
-      <th>Bid verify</th>
-      <th></th>
+      <th>Item 1</th>
+      <th>Item 1's Image</th>
+      <th>Item 2</th>
+      <th>Item 2's Image</th>
       <th></th>
       <th></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @completed_transactions.each do |completed_transaction| %>
+    <% @trades.each do |trade| %>
       <tr>
-        <td><%= completed_transaction.listing_item_id %></td>
-        <td><%= completed_transaction.bid_item_id %></td>
-        <td><%= completed_transaction.listing_user_id %></td>
-        <td><%= completed_transaction.bid_user_id %></td>
-        <td><%= completed_transaction.listing_verify %></td>
-        <td><%= completed_transaction.bid_verify %></td>
-        <td><%= link_to 'Show', completed_transaction %></td>
-        <td><%= link_to 'Edit', edit_completed_transaction_path(completed_transaction) %></td>
-        <td><%= link_to 'Destroy', completed_transaction, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= trade[:user_item].name %>
+        <td><%= image_tag(trade[:user_item].item_image.url(:thumb)) %></td>
+        <td><%= trade[:other_item].name %>
+        <td><%= image_tag(trade[:other_item].item_image.url(:thumb)) %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Completed transaction', new_completed_transaction_path %>

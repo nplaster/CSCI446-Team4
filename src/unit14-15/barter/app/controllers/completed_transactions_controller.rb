@@ -5,6 +5,27 @@ class CompletedTransactionsController < ApplicationController
   # GET /completed_transactions.json
   def index
     @completed_transactions = CompletedTransaction.all
+    @trades = Array.new
+    @completed_transactions.each do |t|
+      tempHash = Hash.new
+      if t.listing_user_id == current_user.id
+        user_item = Item.where(id:t.listing_item_id)[0]
+        other_item = Item.where(id:t.bid_item_id)[0]
+        other_user = User.where(id:t.bid_user_id)[0]
+        tempHash[:verified] = t.listing_verify 
+      else
+        other_item = Item.where(id:t.listing_item_id)[0]
+        user_item = Item.where(id:t.bid_item_id)[0]
+        other_user = User.where(id:t.listing_user_id)[0]
+        tempHash[:verified] = t.bid_verify 
+      end
+      tempHash[:user_item] = user_item
+      tempHash[:other_item] = other_item
+      tempHash[:other_user] = other_user
+      tempHash[:transaction_id] = t.id
+      @trades << tempHash
+    end
+
   end
 
   # GET /completed_transactions/1
